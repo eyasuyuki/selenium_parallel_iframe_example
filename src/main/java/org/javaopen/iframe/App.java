@@ -26,6 +26,7 @@ public class App
         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");//重要
         WebDriver driver = new ChromeDriver(options);
 
         // IFRAMEを同時に探索するリスト
