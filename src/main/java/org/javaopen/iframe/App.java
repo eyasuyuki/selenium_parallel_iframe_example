@@ -29,6 +29,9 @@ public class App
         options.addArguments("--remote-allow-origins=*");//重要
         WebDriver driver = new ChromeDriver(options);
 
+        // after `cd src/test/resources/__files && go run main.go`
+        driver.get("http://localhost:8888/index.html");
+
         // IFRAMEを同時に探索するリスト
         List<CompletableFuture<List<WebElement>>> iframeSearchFutures = getIframeList(driver).stream()
                 .map(iframe -> CompletableFuture.supplyAsync(() -> searchInIframe(driver, iframe)))
@@ -49,6 +52,7 @@ public class App
             ).thenApply(result -> (List<WebElement>) result).get();
 
             // 要素の処理などを行う
+            System.out.println(elements.toString());
 
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
