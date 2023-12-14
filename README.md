@@ -1,6 +1,14 @@
 Selenium parallel iframe example
 ====
 
+# Important notice
+
+This example does not run parallelized.
+
+Because browser does not run multi-thread.
+
+To see: https://stackoverflow.com/questions/28093347/is-selenium-webdriver-thread-safe
+
 # Install google-chrome and chromedriver
 
 ```shell
